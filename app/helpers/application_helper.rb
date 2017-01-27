@@ -1,16 +1,11 @@
 module ApplicationHelper
 
-  def full_title(title = "")
-    if title.empty?
+  def full_title(page_title = "")
+    base_title = "Team Awesome Games"
+    if page_title.empty?
       base_title
     else
-      "#{title} | #{base_title}"
+      "#{page_title} | #{base_title}"
     end
   end
-
-  private
-
-    def base_title
-      "Team Awesome Games"
-    end
 end
