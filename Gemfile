@@ -23,10 +23,10 @@ gem 'jquery-rails',            '~> 4.1'
 gem 'turbolinks',              '~> 5'
 gem 'jbuilder',                '~> 2.5'
 gem 'autoprefixer-rails'
+gem 'pg',                      '~> 0.18'
 
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.3'
   gem 'byebug',  '~> 9.0', platform: :mri
 end
 
@@ -42,10 +42,6 @@ group :test do
   gem 'minitest-reporters',       '~> 1.1'
   gem 'guard',                    '~> 2.13'
   gem 'guard-minitest',           '~> 2.4'
-end
-
-group :production do
-  gem 'pg', '~> 0.18'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
