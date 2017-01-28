@@ -1,2 +1,12 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="center jumbotron">
+  <h1>Team Awesome Games</h1>
+
+  <h2>
+    This is the home page for my 2nd <%= link_to '#100DaysOfCode',
+    "https://github.com/kylebowen/100-days-of-code" %> application.
+    You can sign up to play and help track your score during our team
+    games.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
