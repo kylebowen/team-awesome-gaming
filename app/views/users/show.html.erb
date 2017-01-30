@@ -1,0 +1,17 @@
+<% provide :title, @user.name %>
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
+<p>Name: <%= @user.name %>, Email: <%= @user.email %></p>
+<p>This page will show details (and possibly statistics) about a user.</p>
+<p>Including:</p>
+<ul>
+  <li>Games played</li>
+  <li>Games won</li>
+  <li>Games lost</li>
+  <li>Longest winning streak</li>
+  <li>Longest losing streak</li>
+  <li>Best Game</li>
+  <li>Worst Game</li>
+</ul>
