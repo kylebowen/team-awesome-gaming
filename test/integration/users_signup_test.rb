@@ -4,6 +4,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   test "invalid signup information should re-render page with error messages" do
     get signup_path
+    assert_select 'form.new_user'
+    assert_select 'input#user_name'
+    assert_select 'input#user_email'
+    assert_select 'input#user_password'
+    assert_select 'input#user_password_confirmation'
+    assert_select 'input', type: 'submit'
     assert_no_difference 'User.count' do
       post users_path, params: { user: { name:  "",
                                          email: "user@invalid",
