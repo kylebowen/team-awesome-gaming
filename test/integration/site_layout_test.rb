@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
 
-  test "layout links" do
+  test "logged-out layout links" do
     get root_url
     assert_template 'static_pages/home'
     assert_select "a[href=?]", root_path, count: 3
@@ -13,4 +13,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", "http://www.latimes.com/"
     assert_select "a[href=?]", "https://github.com/kylebowen"
   end
+
+
 end
