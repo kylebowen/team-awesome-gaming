@@ -4,6 +4,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
+    @invalid_user = users(:invalid)
   end
 
   test "login page should have a login form" do
@@ -18,7 +19,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
   end
 
   test "invalid login should re-render page with error messages" do
-    post login_path  params: { session: { email: " ", password: " " } }
+    log_in_as(@invalid_user)
     assert_template 'sessions/new'
     assert_not flash.empty?
     get root_path
@@ -27,8 +28,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
 
   test "valid login should work and redirect to user show page" do
     get login_path
-    post login_path params: { session: { email: @user.email,
-                                         password: 'password' } }
+    log_in_as(@user)
     assert is_logged_in?
     assert_redirected_to @user
     follow_redirect!
@@ -40,12 +40,12 @@ class UserLoginTest < ActionDispatch::IntegrationTest
 
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
-    assert_not_empty cookies['remember_token']
+    assert_equal cookies['remember_token'], assigns(:user).remember_token
   end
 
   test "login without remembering" do
-    #log_in_as(@user, remember_me: '1')
-    #log_in_as(@user, remember_me: '0')
-    #assert_empty cookies['remember_token']
+    log_in_as(@user, remember_me: '1')
+    log_in_as(@user, remember_me: '0')
+    assert_empty cookies['remember_token']
   end
 end

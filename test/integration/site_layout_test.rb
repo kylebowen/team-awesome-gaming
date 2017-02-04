@@ -21,8 +21,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   end
 
   test "logged-in layout links" do
-    post login_path params: { session: { email: @user.email,
-                                         password: 'password' } }
+    log_in_as(@user)
     assert is_logged_in?
     get root_path
     assert_template 'static_pages/home'

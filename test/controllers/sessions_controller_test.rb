@@ -9,8 +9,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "can log in and out" do
     get login_path
     assert_response :success
-    post login_path params: { session: { email: @user.email,
-                                         password: 'password' } }
+    log_in_as(@user)
     assert_redirected_to @user
     assert is_logged_in?
     delete logout_path
