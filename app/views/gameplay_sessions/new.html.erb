@@ -1,0 +1,22 @@
+<% provide :title, 'ScoreKeeper' %>
+<h1>ScoreKeeper</h1>
+<div class="row">
+  <div class="col-md-2 playerscore">
+    <ul>
+      <li><%= gravatar_for @user %></li>
+      <li><%= link_to @user.name, @user, target: "_blank", rel: "noopener" %></li>
+      <li class="score">score:</li>
+      <li class="current"><%= session[:current_score] %></li>
+      <%= form_for(@user, url: scorekeeper_path) do |f| %>
+        <%= f.submit "+1",  class: 'btn btn-xs btn-info' %>
+        <%= f.submit "+5",  class: 'btn btn-xs btn-info' %>
+        <%= f.submit "+10", class: 'btn btn-xs btn-info' %>
+        <%= f.submit "-1",  class: 'btn btn-xs btn-danger' %>
+      <% end %>
+      <li>
+        <%= link_to 'reset score', scorekeeper_path, method: :delete,
+                                               class: 'btn btn-xs btn-danger' %>
+      </li>
+    </ul>
+  </div>
+</div>
