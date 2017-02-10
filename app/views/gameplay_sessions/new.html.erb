@@ -13,10 +13,13 @@
         <%= f.submit "+10", class: 'btn btn-xs btn-info' %>
         <%= f.submit "-1",  class: 'btn btn-xs btn-danger' %>
       <% end %>
-      <li>
+      <%= form_for(@user, url: scorekeeper_path, method: :delete) do |f| %>
+        <%= f.submit "reset score", class: 'btn btn-xs btn-danger' %>
+      <% end %>
+      <!--li>
         <%= link_to 'reset score', scorekeeper_path, method: :delete,
                                                class: 'btn btn-xs btn-danger' %>
-      </li>
+      </li-->
     </ul>
   </div>
 </div>
