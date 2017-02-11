@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/login',    to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/scorekeeper',   to: 'gameplay_sessions#new'
+  post '/scorekeeper',  to: 'gameplay_sessions#create'
   patch '/scorekeeper', to: 'gameplay_sessions#update'
   delete '/scorekeeper', to: 'gameplay_sessions#reset'
   resources :users
