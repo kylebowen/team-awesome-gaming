@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GameplaySessionsControllerTest < ActionDispatch::IntegrationTest
+class PlaySessionsControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:michael)
