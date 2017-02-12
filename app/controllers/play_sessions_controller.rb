@@ -8,6 +8,7 @@ class PlaySessionsController < ApplicationController
   end
 
   def create
+    #@user = current_user
     @play_session = PlaySession.new(play_session_params)
   end
 
