@@ -2,9 +2,31 @@
 <h1>ScoreKeeper</h1>
 <h2>Change this page to be a form to setup the game with players (in order)</h2>
 <div class="row">
+  <div class="col-md-6 col-offset-3">
+    <%= form_for @play_session, url: scorekeeper_path do |form| %>
+      <%= form.label :players, "Name - Player 1" %>
+      <%= form.text_field :players, class: 'form-control' %>
 
+      <%= form.label :players, "Name - Player 2" %>
+      <%= form.text_field :players, class: 'form-control' %>
+
+      <%= form.label :players, "Name - Player 3" %>
+      <%= form.text_field :players, class: 'form-control' %>
+
+      <%= form.label :players, "Name - Player 4" %>
+      <%= form.text_field :players, class: 'form-control' %>
+
+      <%= form.label :players, "Name - Player 5" %>
+      <%= form.text_field :players, class: 'form-control' %>
+
+      <%= form.label :players, "Name - Player 6" %>
+      <%= form.text_field :players, class: 'form-control' %>
+
+      <%= form.submit "Start a New Game", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
 </div>
-<div class="row">
+<!--div class="row">
   <div class="col-md-2 playerscore">
     <ul>
       <li><%= gravatar_for @user %></li>
@@ -24,4 +46,4 @@
       <% end %>
     </ul>
   </div>
-</div>
+</div-->
